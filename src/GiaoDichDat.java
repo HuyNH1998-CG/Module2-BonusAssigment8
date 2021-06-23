@@ -21,11 +21,11 @@ public class GiaoDichDat extends GiaoDich {
     @Override
     public String toString() {
         return "GiaoDich{" +
-                "maGiaoDich='" + getMaGiaoDich() + '\'' +
-                ", ngayGiaoDich='" + getNgayGiaoDich() + '\'' +
-                ", donGIa='" + getDonGia() + '\'' +
-                ", dienTich='" + getDienTich() + '\'' +
-                ", loaiDat='" + getLoaiDat() + '\'' +
+                "Mã giao dịch='" + getMaGiaoDich() + '\'' +
+                ", Ngày giao dịch='" + getNgayGiaoDich() + '\'' +
+                ", Đơn giá='" + getDonGia() + '\'' +
+                ", Diện tích='" + getDienTich() + '\'' +
+                ", Loại đất='" + getLoaiDat() + '\'' +
                 '}';
     }
 }

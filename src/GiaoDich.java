@@ -53,10 +53,10 @@ public class GiaoDich {
     @Override
     public String toString() {
         return "GiaoDich{" +
-                "maGiaoDich='" + maGiaoDich + '\'' +
-                ", ngayGiaoDich='" + ngayGiaoDich + '\'' +
-                ", donGIa='" + donGia + '\'' +
-                ", dienTich='" + dienTich + '\'' +
+                "Mã giao dịch='" + maGiaoDich + '\'' +
+                ", Ngày giao dịch='" + ngayGiaoDich + '\'' +
+                ", Đơn giá='" + donGia + '\'' +
+                ", diện tích='" + dienTich + '\'' +
                 '}';
     }
 }

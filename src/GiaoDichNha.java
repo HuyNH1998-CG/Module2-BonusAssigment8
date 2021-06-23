@@ -32,12 +32,12 @@ public class GiaoDichNha extends GiaoDich{
     @Override
     public String toString() {
         return "GiaoDich{" +
-                "maGiaoDich='" + getMaGiaoDich() + '\'' +
-                ", ngayGiaoDich='" + getNgayGiaoDich() + '\'' +
-                ", donGia='" + getDonGia() + '\'' +
-                ", dienTich='" + getDienTich() + '\'' +
-                ", loaiNha='" + getLoaiNha() + '\'' +
-                ", diaChi='" + getDiaChi() + '\'' +
+                "Mã giao dịch='" + getMaGiaoDich() + '\'' +
+                ", Ngày giao dịch='" + getNgayGiaoDich() + '\'' +
+                ", Đơn giá='" + getDonGia() + '\'' +
+                ", Diện tích='" + getDienTich() + '\'' +
+                ", Loại Nhà='" + getLoaiNha() + '\'' +
+                ", Địa chỉ='" + getDiaChi() + '\'' +
                 '}';
     }
 }

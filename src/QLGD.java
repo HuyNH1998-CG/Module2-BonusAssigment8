@@ -118,12 +118,7 @@ public class QLGD {
 
     public static void xoaGiaoDichTheoNgay() {
         String ngayGiaoDich = getNgayGiaoDich();
-        for (GiaoDich G : list) {
-            if (G.getNgayGiaoDich().equals(ngayGiaoDich)) {
-                list.remove(G);
-                return;
-            }
-        }
+        list.removeIf(G -> G.getNgayGiaoDich().equals(ngayGiaoDich));
     }
 
     public static void tinhTienGiaoDichTheoNgay() {
