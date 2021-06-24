@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -125,17 +126,26 @@ public class QLGD {
         String ngayGiaoDich = getNgayGiaoDich();
         for (GiaoDich G : list) {
             if (G.getNgayGiaoDich().equals(ngayGiaoDich)) {
+                BigDecimal dienTich = new BigDecimal(G.getDienTich());
+                BigDecimal donGia = new BigDecimal(G.getDonGia());
                 if (G instanceof GiaoDichDat g) {
                     if (g.getLoaiDat().equals(loaiA)) {
-                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + (Integer.parseInt(g.getDienTich()) * Integer.parseInt(g.getDonGia()) * 1.5) + " VNĐ");
+                        BigDecimal tiSoLoaiA = new BigDecimal("1.5");
+                        BigDecimal thanhTien = dienTich.multiply(donGia).multiply(tiSoLoaiA);
+                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + thanhTien + " VNĐ");
                     } else {
-                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + (Integer.parseInt(g.getDienTich()) * Integer.parseInt(g.getDonGia())) + " VNĐ");
+                        BigDecimal thanhTien = dienTich.multiply(donGia);
+                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + thanhTien + " VNĐ");
                     }
                 } else if (G instanceof GiaoDichNha g){
                     if(g.getLoaiNha().equals(loaiCaoCap)){
-                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + (Integer.parseInt(g.getDienTich()) * Integer.parseInt(g.getDonGia())) + " VNĐ");
+                        BigDecimal thanhTien = dienTich.multiply(donGia);
+                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + thanhTien + " VNĐ");
                     } else {
-                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + (Integer.parseInt(g.getDienTich()) * Integer.parseInt(g.getDonGia()) /100 * 90) + " VNĐ");
+                        BigDecimal chiaPhanTram = new BigDecimal("100");
+                        BigDecimal nhaThuong = new BigDecimal("90");
+                        BigDecimal thanhTien = dienTich.multiply(donGia).divide(chiaPhanTram).multiply(nhaThuong);
+                        System.out.println("Giao dịch mã: " + g.getMaGiaoDich() + ", Thành tiền: " + thanhTien + " VNĐ");
                     }
                 }
             }
