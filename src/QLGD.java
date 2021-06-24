@@ -26,7 +26,7 @@ public class QLGD {
     }
 
     public static GiaoDich giaoDichNha() {
-        String maGiaoDich = getMaGiaoDich();
+        String maGiaoDich = checkMaGiaoDich();
         String ngayGiaoDich = getNgayGiaoDich();
         String donGia = getDonGia();
         String dienTich = getDienTich();
@@ -47,17 +47,38 @@ public class QLGD {
             String loaiNha = input.nextLine();
             if (loaiNha.equals(loaiCaoCap) || loaiNha.equals(loaiThuong)) {
                 return loaiNha;
+            }  else {
+                System.out.println("Nhập sai, nhập lại");
             }
         }
     }
 
     public static GiaoDich giaoDichDat() {
-        String maGiaoDich = getMaGiaoDich();
+        String maGiaoDich = checkMaGiaoDich();
         String ngayGiaoDich = getNgayGiaoDich();
         String donGia = getDonGia();
         String loaiDat = getLoaiDat();
         String dienTich = getDienTich();
         return new GiaoDichDat(maGiaoDich, ngayGiaoDich, donGia, dienTich, loaiDat);
+    }
+
+    private static String checkMaGiaoDich() {
+        String maGiaoDich = null;
+        boolean stop = false;
+        while(!stop){
+            maGiaoDich = getMaGiaoDich();
+            if (list.isEmpty()){
+                break;
+            }
+            for(GiaoDich G :list){
+                if (G.getMaGiaoDich().equals(maGiaoDich)){
+                    System.out.println("Mã tồn tại");
+                } else {
+                    stop = true;
+                }
+            }
+        }
+        return maGiaoDich;
     }
 
     private static String getDienTich() {
@@ -72,6 +93,8 @@ public class QLGD {
             String loaiDat = input.nextLine();
             if (loaiDat.equals(loaiA) || loaiDat.equals(loaiB) || loaiDat.equals(loaiC)) {
                 return loaiDat;
+            } else {
+                System.out.println("Nhập sai, nhập lại");
             }
         }
     }
